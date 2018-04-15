@@ -10,14 +10,8 @@
 ##        AUTHOR:  Eng. Saddam ZEMMALI
 ##       CREATED:  15.04.2018 17:48:01
 ##      REVISION:  ---
+##       Version:  1.0  ¯\_(ツ)_/¯
 ##===============================================================================
-
-echo "Version: 1.0 ¯\_(ツ)_/¯"
-echo "╔═══════════════════════════════════════╗"
-echo "║- Author: Saddam ZEMMALI               ║"
-echo "║- eMail:                               ║"
-echo "║- Version: 1.0                         ║"
-echo "╚═══════════════════════════════════════╝"
 
 NOW="$(date +"%B_%Y")"
 NOW2="$(date +"%F")"
@@ -25,21 +19,21 @@ NOW1="$(date +"%F_%H%M")"
 DIR="/home/backup/DB"
 
 echo "╔═══════════════════════════════════════╗"
-echo "║ 	Please add the below details      ║"
+echo "║     Please add the below details      ║"
 echo "╚═══════════════════════════════════════╝"
 HOST=
 USER=
 PASS=
 
 echo "╔═══════════════════════════════════════╗"
-echo "║ 	   Backup DB PSQL		          ║"
+echo "║       Backup DB PSQL		          ║"
 echo "╚═══════════════════════════════════════╝"
 echo "$NOW1 Backup DB postgresql $(date +"%B_%Y")" > $DIR/backup-DB.log
 pg_dump -d postgresql  | bzip2 > $DIR/backup_DB_postgresql.$NOW2.psql.bz2
 
 
 echo "╔═══════════════════════════════════════╗"
-echo "║ 	   Check DB PSQL Backup	          ║"
+echo "║     Check DB PSQL Backup	          ║"
 echo "╚═══════════════════════════════════════╝"
 #### Check Backup
 if [ $? -ne 0 ]
@@ -65,7 +59,7 @@ rm $DIR/backup_DB_postgresql.$NOW2.psql.bz2
 
 
 echo "╔═══════════════════════════════════════╗"
-echo "║    Check if exist any error			  ║"
+echo "║ Check if exist any error			  ║"
 echo "╚═══════════════════════════════════════╝"
 err_ftp=`egrep -c '(Could not create file.|Login incorrect.|Not connected.)' $DIR/test_send-DB.log`
 if [ $err_ftp -eq 0 ]
@@ -78,5 +72,5 @@ else
 fi
 
 echo "╔═══════════════════════════════════════╗"
-echo "║    Thanks, Your Backup is Done		  ║"
+echo "║  Thanks, Your Backup is Done		  ║"
 echo "╚═══════════════════════════════════════╝"
