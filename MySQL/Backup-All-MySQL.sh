@@ -71,10 +71,8 @@ done
 echo "╔═══════════════════════════════════════════════════════╗"
 echo "║  Compress all tables in one nice file to upload	      ║"
 echo "╚═══════════════════════════════════════════════════════╝"
-
 ARCHIVE=$BACKUP/$NOW.tar.gz
 ARCHIVED=$BACKUP/$NOW
-
 $TAR -cvf $ARCHIVE $ARCHIVED
 
 echo "╔═══════════════════════════════════════╗"
@@ -95,3 +93,8 @@ echo "╔═══════════════════════�
 echo "║  		Delete the backup dir and keep archive 		  ║"
 echo "╚═══════════════════════════════════════════════════════╝"
 rm -rf $ARCHIVED
+
+
+echo "╔═══════════════════════════════════════╗"
+echo "║  Thanks, Your Backup is Done		  ║"
+echo "╚═══════════════════════════════════════╝"
